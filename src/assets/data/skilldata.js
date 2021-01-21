@@ -32,9 +32,35 @@ const skillData = {
 		},
 	],
 
-	languageInfo: {
-		title: "한국어",
-	},
+	experienceList: [
+		{
+			period: "2018.11 - PRESENT",
+			position: "WEB DEVELOPER",
+			company: "CONER CREATIVE",
+			explain: "클래스101에서 백엔드 개발자로 1개월동안 인턴쉽 프로그램을 진행하였습니다. 사내 EX팀의 어드민 대시보드를 개발했습니다.",
+		},
+		{
+			period: "2018.09 - 2018.11",
+			position: "PUBLISHER",
+			company: "FIVESENSE SOFT",
+			explain: "클래스101에서 백엔드 개발자로 1개월동안 인턴쉽 프로그램을 진행하였습니다. 사내 EX팀의 어드민 대시보드를 개발했습니다.",
+		},
+		{
+			period: "2017.09 - 2018.03",
+			position: "E-BOOK DEVELOPER",
+			company: "THE MOUM",
+			explain: "클래스101에서 백엔드 개발자로 1개월동안 인턴쉽 프로그램을 진행하였습니다. 사내 EX팀의 어드민 대시보드를 개발했습니다.",
+		},
+	],
+
+	educationList: [
+		{
+			period: "2019.09 - 2019.12",
+			position: "WEB DEVELOPER",
+			company: "ENVATO",
+			explain: "위코드 코딩부트캠프 4기 백엔드 과정을 수료하였습니다. 백엔드 개발에 필요한 기초 개념을 공부하고 팀 프로젝트를 2번 진행하였습니다.",
+		},
+	],
 };
 
 export default skillData;
