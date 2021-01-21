@@ -5,7 +5,7 @@ import CssConfig from "../../assets/config";
 import Heading from "../atoms/Heading";
 
 function SkillsWrap() {
-	const skilltList = data.skillList.map((list, idx) => (
+	const skillsList = data.skillList.map((list, idx) => (
 		<div className="skill-list" key={idx}>
 			<Heading level="3" className="skill-label">
 				<i className={list.icon}></i>: {list.label}
@@ -18,7 +18,7 @@ function SkillsWrap() {
 			</ul>
 		</div>
 	));
-	return <StyledSkillsWrap>{skilltList}</StyledSkillsWrap>;
+	return <StyledSkillsWrap>{skillsList}</StyledSkillsWrap>;
 }
 
 const StyledSkillsWrap = styled.div`
@@ -26,7 +26,7 @@ const StyledSkillsWrap = styled.div`
 	flex-wrap: wrap;
 	.skill-list {
 		width: calc(33% - 30px);
-		margin: 20px 15px;
+		margin: 0 15px 30px;
 		padding: 20px 30px 20px 30px;
 		border: 1px solid #252525;
 		border-radius: 5px;

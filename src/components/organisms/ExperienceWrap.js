@@ -5,39 +5,40 @@ import styled from "styled-components";
 import Heading from "../atoms/Heading";
 
 function ExperienceWrap() {
+	const experienceList = data.experienceList.map((list, idx) => (
+		<li key={idx}>
+			<div className="icon">
+				<i className="far fa-building"></i>
+			</div>
+			<span className="time">{list.period}</span>
+			<Heading level="4">
+				{list.position}
+				<span className="place">{list.company}</span>
+			</Heading>
+			<p>{list.explain}</p>
+		</li>
+	));
+
+	const educationList = data.educationList.map((list, idx) => (
+		<li key={idx}>
+			<div className="icon">
+				<i className="far fa-building"></i>
+			</div>
+			<span className="time">{list.period}</span>
+			<Heading level="4">
+				{list.position}
+				<span className="place">{list.company}</span>
+			</Heading>
+			<p>{list.explain}</p>
+		</li>
+	));
 	return (
 		<StyledExpWrap>
 			<div className="experience">
-				<ul>
-					<li>
-						<div className="icon">
-							<i class="far fa-building"></i>
-						</div>
-						<span className="time">2018 - PRESENT</span>
-						<Heading level="4">
-							WEB DEVELOPER<span className="place">ENVATO</span>
-						</Heading>
-						<p>클래스101에서 백엔드 개발자로 1개월동안 인턴쉽 프로그램을 진행하였습니다. 사내 EX팀의 어드민 대시보드를 개발했습니다.</p>
-					</li>
-					<li></li>
-					<li></li>
-				</ul>
+				<ul>{experienceList}</ul>
 			</div>
 			<div className="education">
-				<ul>
-					<li>
-						<div className="icon">
-							<i class="fas fa-graduation-cap"></i>
-						</div>
-						<span className="time">2018 - PRESENT</span>
-						<Heading level="4">
-							WEB DEVELOPER<span className="place">ENVATO</span>
-						</Heading>
-						<p>클래스101에서 백엔드 개발자로 1개월동안 인턴쉽 프로그램을 진행하였습니다. 사내 EX팀의 어드민 대시보드를 개발했습니다.</p>
-					</li>
-					<li></li>
-					<li></li>
-				</ul>
+				<ul>{educationList}</ul>
 			</div>
 		</StyledExpWrap>
 	);
@@ -81,6 +82,7 @@ const StyledExpWrap = styled.div`
 					background-color: #252525;
 					font-size: 12px;
 					font-weight: 600;
+					letter-spacing: 0.6px;
 					opacity: 0.8;
 				}
 				> h4 {
