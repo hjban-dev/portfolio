@@ -47,6 +47,7 @@ const StyledHeader = styled.header`
 	right: 20px;
 	top: 0;
 	bottom: 0;
+	z-index: 100;
 	ul {
 		display: flex;
 		justify-content: center;
@@ -65,19 +66,19 @@ const StyledHeader = styled.header`
 			}
 			&:hover {
 				a {
-					padding: 15px 16px 15px 20px;
+					padding: 13px 14px 13px 18px;
 					background-color: ${CssConfig.mainColor};
 					span {
 						position: relative;
 						opacity: 1;
-						padding-right: 10px;
+						padding-right: 7px;
 						color: #fff;
 					}
 				}
 			}
 			a {
 				display: inline-block;
-				padding: 15px 16px;
+				padding: 13px 14px;
 				border-radius: 30px;
 				background: #2b2a2a;
 				transition: all 0.2s;
@@ -88,14 +89,19 @@ const StyledHeader = styled.header`
 					opacity: 0;
 					font-size: 18px;
 					font-weight: 600;
-					letter-spacing: 1px;
+					letter-spacing: 0.5px;
+					line-height: 1;
 					text-transform: uppercase;
 					vertical-align: text-top;
 					transition: opacity 0.3s ease, padding 0.3s ease;
 					color: transparent;
 				}
 				i {
+					width: 25px;
+					height: 25px;
 					font-size: 20px;
+					text-align: center;
+					line-height: 25px;
 				}
 			}
 		}
