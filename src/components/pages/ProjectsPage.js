@@ -13,7 +13,7 @@ function ProjectsPage() {
 					My <span className="point">Projects</span>
 				</PageHeader>
 				<section>
-					<PortfolioWrap></PortfolioWrap>
+					<PortfolioWrap />
 				</section>
 			</StyledProjects>
 		</div>
