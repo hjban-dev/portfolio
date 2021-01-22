@@ -32,10 +32,11 @@ function Header() {
 					</Link>
 				</li>
 				<li>
-					<Link to="/github">
+					{/* eslint-disable-next-line react/jsx-no-target-blank */}
+					<a href="https://github.com/hjban-dev" target="_blank">
 						<span>Github</span>
 						<i className="fab fa-github"></i>
-					</Link>
+					</a>
 				</li>
 			</ul>
 		</StyledHeader>

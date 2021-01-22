@@ -18,12 +18,12 @@ export class SkillsPage extends Component {
 
 					<section>
 						<Heading level="2">MY SKILLS</Heading>
-						<SkillsWrap></SkillsWrap>
+						<SkillsWrap />
 					</section>
 
 					<section>
 						<Heading level="2">EXPERIENCE & EDUCATION</Heading>
-						<ExperienceWrap></ExperienceWrap>
+						<ExperienceWrap />
 					</section>
 				</StyledSkills>
 			</div>
