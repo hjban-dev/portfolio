@@ -8,9 +8,15 @@ function PortfolioWrap() {
 	const portfolioList = data.portfolioList.map((list, idx) => (
 		<li key={idx}>
 			<Link to={`/projects/${list.name}`}>
+				{list.project === "Toy" && (
+					<div className="toy">
+						<i className="fas fa-cubes"></i>
+					</div>
+				)}
+
 				<div className="txt-wrap">
 					{/* <div className="logo">
-						<img src={`/images/${list.logo}.png`} alt="" />
+						<img src={`/images/logo/${list.logo}.png`} alt="" />
 					</div> */}
 					<div className="name">{list.name}</div>
 					<span className="time">{list.period}</span>
@@ -39,13 +45,14 @@ function PortfolioWrap() {
 }
 
 const StyledPortWrap = styled.div`
-	width: 1000px;
+	max-width: 1000px;
 	margin: auto;
 	> ul {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		> li {
+			position: relative;
 			width: 32%;
 			margin-bottom: 20px;
 			padding: 20px;
@@ -54,44 +61,12 @@ const StyledPortWrap = styled.div`
 			position: relative;
 			overflow: hidden;
 			transition: color 0.25s;
-			&::before,
-			&::after {
-				content: "";
-				box-sizing: inherit;
+			.toy {
 				position: absolute;
-				width: 100%;
-				height: 100%;
-				border: 2px solid transparent;
-				width: 0;
-				height: 0;
-			}
-
-			&::before {
-				top: 0;
-				left: 0;
-			}
-
-			&::after {
-				bottom: 0;
-				right: 0;
-			}
-
-			&:hover {
-				&::before,
-				&::after {
-					width: 100%;
-					height: 100%;
-				}
-				&::before {
-					border-top-color: ${CssConfig.mainColor};
-					border-right-color: ${CssConfig.mainColor};
-					transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
-				}
-				&::after {
-					border-bottom-color: ${CssConfig.mainColor};
-					border-left-color: ${CssConfig.mainColor};
-					transition: border-color 0s ease-out 0.3s, width 0.15s ease-out 0.3s, height 0.15s ease-out 0.45s;
-				}
+				top: 5px;
+				right: 15px;
+				font-size: 30px;
+				color: ${CssConfig.mainColor};
 			}
 			.logo {
 				img {
@@ -138,6 +113,47 @@ const StyledPortWrap = styled.div`
 					padding-bottom: 3px;
 					font-size: 12px;
 					font-weight: 500;
+				}
+			}
+		}
+		> li {
+			&::before,
+			&::after {
+				content: "";
+				box-sizing: inherit;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border: 1px solid transparent;
+				width: 0;
+				height: 0;
+			}
+
+			&::before {
+				top: 0;
+				left: 0;
+			}
+
+			&::after {
+				bottom: 0;
+				right: 0;
+			}
+
+			&:hover {
+				&::before,
+				&::after {
+					width: 100%;
+					height: 100%;
+				}
+				&::before {
+					border-top-color: ${CssConfig.mainColor};
+					border-right-color: ${CssConfig.mainColor};
+					transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+				}
+				&::after {
+					border-bottom-color: ${CssConfig.mainColor};
+					border-left-color: ${CssConfig.mainColor};
+					transition: border-color 0s ease-out 0.3s, width 0.15s ease-out 0.3s, height 0.15s ease-out 0.45s;
 				}
 			}
 		}
