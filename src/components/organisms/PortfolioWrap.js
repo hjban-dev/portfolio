@@ -8,16 +8,15 @@ function PortfolioWrap() {
 	const portfolioList = data.portfolioList.map((list, idx) => (
 		<li key={idx}>
 			<Link to={`/projects/${list.name}`}>
-				{list.project === "Toy" && (
-					<div className="toy">
-						<i className="fas fa-cubes"></i>
-					</div>
-				)}
-
+				<div className="logo">
+					{list.project === "Toy" && (
+						<div className="toy">
+							<i className="fas fa-cubes"></i>
+						</div>
+					)}
+					<img src={`/images/logo/${list.logo}.png`} alt="" />
+				</div>
 				<div className="txt-wrap">
-					{/* <div className="logo">
-						<img src={`/images/logo/${list.logo}.png`} alt="" />
-					</div> */}
 					<div className="name">{list.name}</div>
 					<span className="time">{list.period}</span>
 					<p>
@@ -71,8 +70,9 @@ const StyledPortWrap = styled.div`
 			.logo {
 				img {
 					background: #fff;
-					border-radius: 2px;
-					padding: 5px;
+					border-radius: 1px;
+					padding: 3px;
+					height: 18px;
 				}
 			}
 			.txt-wrap {
