@@ -58,6 +58,48 @@ const StyledSkillsWrap = styled.div`
 			}
 		}
 	}
+	.skill-list {
+		position: relative;
+		&::before,
+		&::after {
+			content: "";
+			box-sizing: inherit;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border: 1px solid transparent;
+			width: 0;
+			height: 0;
+		}
+
+		&::before {
+			top: 0;
+			left: 0;
+		}
+
+		&::after {
+			bottom: 0;
+			right: 0;
+		}
+
+		&:hover {
+			&::before,
+			&::after {
+				width: 100%;
+				height: 100%;
+			}
+			&::before {
+				border-top-color: ${CssConfig.mainColor};
+				border-right-color: ${CssConfig.mainColor};
+				transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+			}
+			&::after {
+				border-bottom-color: ${CssConfig.mainColor};
+				border-left-color: ${CssConfig.mainColor};
+				transition: border-color 0s ease-out 0.3s, width 0.15s ease-out 0.3s, height 0.15s ease-out 0.45s;
+			}
+		}
+	}
 `;
 
 export default SkillsWrap;

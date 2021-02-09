@@ -1,21 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import CssConfig from "../../assets/config";
 import data from "../../assets/data/portfoilodata";
 import { Link } from "react-router-dom";
 
 function PortfolioWrap() {
+	var portList = document.querySelectorAll(".port-list");
+	const [Mount, setMount] = useState(false);
+
+	useEffect(() => {
+		for (var i = 0; i < portList.length; i++) {
+			portList[i].addEventListener("mouseenter", (e) => {
+				mouseEnter(e.offsetX, e.offsetY);
+			});
+			// portList[i].addEventListener("mouseleave", (e) => console.log(e));
+		}
+		setMount(true);
+	}, [Mount]);
+
+	function mouseEnter(x, y) {
+		console.log(x, y);
+		// for (var i = 0; i < portList.length; i++) {
+		// 	portList[i].mouseEnter = function (e) {
+		// 		console.log(e);
+		// 	};
+		// }
+	}
+
 	const portfolioList = data.portfolioList.map((list, idx) => (
-		<li key={idx}>
+		<li
+			key={idx}
+			className="port-list"
+			// onMouseEnter={(e) => {
+			// 	mouseEnter(e.screenX);
+			// }}
+		>
 			<Link to={`/projects/${list.name}`}>
-				<div className="logo">
+				{/* <div className="logo">
 					{list.project === "Toy" && (
 						<div className="toy">
 							<i className="fas fa-cubes"></i>
 						</div>
 					)}
 					<img src={`/images/logo/${list.logo}.png`} alt="" />
-				</div>
+				</div> */}
 				<div className="txt-wrap">
 					<div className="name">{list.name}</div>
 					<span className="time">{list.period}</span>
@@ -32,6 +60,7 @@ function PortfolioWrap() {
 						</ul>
 					</div>
 				</div>
+				<div className="test">test</div>
 			</Link>
 		</li>
 	));
@@ -60,6 +89,15 @@ const StyledPortWrap = styled.div`
 			position: relative;
 			overflow: hidden;
 			transition: color 0.25s;
+			.test {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0px;
+				top: 0px;
+				background-color: #ffb400;
+				transition: all 300ms ease 0s;
+			}
 			.toy {
 				position: absolute;
 				top: 5px;
@@ -113,47 +151,6 @@ const StyledPortWrap = styled.div`
 					padding-bottom: 3px;
 					font-size: 12px;
 					font-weight: 500;
-				}
-			}
-		}
-		> li {
-			&::before,
-			&::after {
-				content: "";
-				box-sizing: inherit;
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				border: 1px solid transparent;
-				width: 0;
-				height: 0;
-			}
-
-			&::before {
-				top: 0;
-				left: 0;
-			}
-
-			&::after {
-				bottom: 0;
-				right: 0;
-			}
-
-			&:hover {
-				&::before,
-				&::after {
-					width: 100%;
-					height: 100%;
-				}
-				&::before {
-					border-top-color: ${CssConfig.mainColor};
-					border-right-color: ${CssConfig.mainColor};
-					transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
-				}
-				&::after {
-					border-bottom-color: ${CssConfig.mainColor};
-					border-left-color: ${CssConfig.mainColor};
-					transition: border-color 0s ease-out 0.3s, width 0.15s ease-out 0.3s, height 0.15s ease-out 0.45s;
 				}
 			}
 		}
