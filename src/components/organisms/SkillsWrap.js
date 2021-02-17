@@ -70,6 +70,7 @@ const StyledSkillsWrap = styled.div`
 			border: 1px solid transparent;
 			width: 0;
 			height: 0;
+			border-radius: 5px;
 		}
 
 		&::before {

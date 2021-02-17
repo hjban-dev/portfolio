@@ -12,8 +12,8 @@ function ExperienceWrap() {
 			</div>
 			<span className="time">{list.period}</span>
 			<Heading level="4">
-				{list.position}
-				<span className="place">{list.company}</span>
+				{list.company}
+				<span className="place">{list.position}</span>
 			</Heading>
 			<p>{list.explain}</p>
 		</li>
@@ -26,8 +26,8 @@ function ExperienceWrap() {
 			</div>
 			<span className="time">{list.period}</span>
 			<Heading level="4">
-				{list.position}
-				<span className="place">{list.company}</span>
+				{list.company}
+				{/* <span className="place">{list.position}</span> */}
 			</Heading>
 			<p>{list.explain}</p>
 		</li>
