@@ -55,7 +55,7 @@ const StyledBlogWrap = styled.div`
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				height: 10vw;
+				height: 150px;
 				padding: 0 10%;
 				border-radius: 5px 5px 0 0;
 				font-size: 22px;

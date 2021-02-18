@@ -4,7 +4,7 @@ import Heading from "../atoms/Heading";
 import CssConfig from "../../assets/config";
 
 function DetailWrap(props) {
-	console.log(props.project);
+	// console.log(props.project);
 
 	const imgList = props.project.image.map((img, idx) => (
 		<li key={idx}>

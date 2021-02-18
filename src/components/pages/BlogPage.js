@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import PageHeader from "../molecules/PageHeader";
 import BlogWrap from "../organisms/BlogWrap";
-import Header from "../organisms/Header";
+import PageWrap from "../templates/PageWrap";
 
 export class BlogPage extends Component {
 	render() {
 		return (
-			<div>
-				<Header />
+			<PageWrap page="blog">
 				<main>
 					<PageHeader titleBg="Study">
 						My <span className="point">Blog</span>
@@ -16,7 +15,7 @@ export class BlogPage extends Component {
 						<BlogWrap />
 					</section>
 				</main>
-			</div>
+			</PageWrap>
 		);
 	}
 }

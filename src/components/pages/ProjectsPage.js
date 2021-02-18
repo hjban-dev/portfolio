@@ -1,28 +1,23 @@
-import React from "react";
-import styled from "styled-components";
+import React, { Component } from "react";
 import PageHeader from "../molecules/PageHeader";
-import Header from "../organisms/Header";
 import PortfolioWrap from "../organisms/PortfolioWrap";
+import PageWrap from "../templates/PageWrap";
 
-function ProjectsPage() {
-	return (
-		<div>
-			<Header />
-			<StyledProjects>
-				<PageHeader titleBg="Works">
-					My <span className="point">Projects</span>
-				</PageHeader>
-				<section>
-					<PortfolioWrap />
-				</section>
-			</StyledProjects>
-		</div>
-	);
+export class ProjectsPage extends Component {
+	render() {
+		return (
+			<PageWrap page="projects">
+				<main>
+					<PageHeader titleBg="Works">
+						My <span className="point">Projects</span>
+					</PageHeader>
+					<section>
+						<PortfolioWrap />
+					</section>
+				</main>
+			</PageWrap>
+		);
+	}
 }
-
-const StyledProjects = styled.main`
-	max-width: 1140px;
-	margin: auto;
-`;
 
 export default ProjectsPage;

@@ -3,14 +3,13 @@ import styled from "styled-components";
 import Heading from "../atoms/Heading";
 import PageHeader from "../molecules/PageHeader";
 import ExperienceWrap from "../organisms/ExperienceWrap";
-import Header from "../organisms/Header";
 import SkillsWrap from "../organisms/SkillsWrap";
+import PageWrap from "../templates/PageWrap";
 
 export class SkillsPage extends Component {
 	render() {
 		return (
-			<div>
-				<Header />
+			<PageWrap page="skills">
 				<StyledSkills>
 					<PageHeader titleBg="Resume">
 						My <span className="point">Skills</span>
@@ -26,15 +25,15 @@ export class SkillsPage extends Component {
 						<ExperienceWrap />
 					</section>
 				</StyledSkills>
-			</div>
+			</PageWrap>
 		);
 	}
 }
 
 const StyledSkills = styled.main`
-	max-width: 1140px;
-	margin: auto;
 	section {
+		max-width: 1140px;
+		margin: auto;
 		padding-bottom: 80px;
 		&:not(:last-child) {
 			position: relative;
