@@ -3,11 +3,11 @@ import styled, { keyframes } from "styled-components";
 
 function Preloader() {
 	const [Mount, setMount] = useState(false);
-
 	useEffect(() => {
 		setTimeout(() => {
 			setMount(true);
 		}, 300);
+		return () => setMount(false);
 	}, []);
 
 	return (
