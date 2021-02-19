@@ -11,8 +11,8 @@ export class SkillsPage extends Component {
 		return (
 			<PageWrap page="skills">
 				<StyledSkills>
-					<PageHeader titleBg="Resume">
-						My <span className="point">Skills</span>
+					<PageHeader titleBg="Skills">
+						About <span className="point">Me</span>
 					</PageHeader>
 
 					<section>
