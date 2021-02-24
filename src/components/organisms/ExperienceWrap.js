@@ -1,6 +1,5 @@
 import React from "react";
 import data from "../../assets/data/skilldata";
-import CssConfig from "../../assets/config";
 import styled from "styled-components";
 import Heading from "../atoms/Heading";
 
@@ -26,8 +25,8 @@ function ExperienceWrap() {
 			</div>
 			<span className="time">{list.period}</span>
 			<Heading level="4">
-				{list.company}
-				{/* <span className="place">{list.position}</span> */}
+				{list.position}
+				<span className="place">{list.company}</span>
 			</Heading>
 			<p>{list.explain}</p>
 		</li>
@@ -72,7 +71,7 @@ const StyledExpWrap = styled.div`
 					border-radius: 50%;
 					text-align: center;
 					line-height: 40px;
-					background-color: ${CssConfig.mainColor};
+					background-color: ${(props) => props.theme.mainColor};
 				}
 				.time {
 					display: inline-block;

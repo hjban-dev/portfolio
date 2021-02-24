@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import PageHeader from "../molecules/PageHeader";
-import PortfolioWrap from "../organisms/PortfolioWrap";
 import PageWrap from "../templates/PageWrap";
+import PageHeader from "../molecules/PageHeader";
+import PortfolioMain from "../organisms/PortfolioMain";
+import PortfolioMini from "../organisms/PortfolioMini";
 
 export class ProjectsPage extends Component {
 	render() {
@@ -12,7 +13,10 @@ export class ProjectsPage extends Component {
 						My <span className="point">Projects</span>
 					</PageHeader>
 					<section>
-						<PortfolioWrap />
+						<PortfolioMain />
+					</section>
+					<section>
+						<PortfolioMini />
 					</section>
 				</main>
 			</PageWrap>

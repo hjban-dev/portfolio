@@ -1,8 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import imgSrc from "../../assets/images/home1.jpg";
 import Heading from "../atoms/Heading";
-import CssConfig from "../../assets/config";
 
 function AboutTxtWrap() {
 	return (
@@ -16,8 +15,10 @@ function AboutTxtWrap() {
 					<Heading level="2">HI THERE!</Heading>
 					<Heading>
 						I'M{" "}
-						<span>
-							<b>STEVE MILNERA</b>
+						<span className="message">
+							<strong>HYEJU BAN</strong>
+							<strong>WEB DEVELOPER</strong>
+							<strong>UX/UI PUBLISHER</strong>
 						</span>
 					</Heading>
 					<p>I’m a Tunisian based web designer & front‑end developer focused on crafting clean & user‑friendly experiences, I am passionate about building excellent software that improves the lives of those around me.</p>
@@ -26,26 +27,26 @@ function AboutTxtWrap() {
 					<Heading level="2">PERSONAL INFOS</Heading>
 					<ul>
 						<li>
+							<span>Name : </span>반혜주
+						</li>
+						<li>
+							<span>Age : </span>26, 1996.02
+						</li>
+						<li>
+							<span>Phone : </span>010.5103.2212
+						</li>
+						<li>
+							<span>Address : </span>서울시 은평구
+						</li>
+						<li>
+							<span>Email : </span>baneju212@naver.com
+						</li>
+						{/* <li>
 							<span>Name : </span>Steve
 						</li>
 						<li>
-							<span>Age : </span>Steve
-						</li>
-						<li>
-							<span>Address : </span>Steve
-						</li>
-						<li>
-							<span>Phone : </span>Steve
-						</li>
-						<li>
-							<span>Email : </span>Steve
-						</li>
-						<li>
 							<span>Name : </span>Steve
-						</li>
-						<li>
-							<span>Name : </span>Steve
-						</li>
+						</li> */}
 					</ul>
 				</section>
 				<button>MORE ABOUT ME</button>
@@ -53,6 +54,62 @@ function AboutTxtWrap() {
 		</StyledHome>
 	);
 }
+
+const openclose = keyframes`
+	0% {
+		top: 0;
+		width: 0;
+	}
+	1% {
+		width: 0;
+	}
+	11% {
+		width: 100%;
+	}
+	22% {
+		width: 100%;
+	}
+	32% {
+		top: 0;
+		width: 0;
+	}
+	33% {
+		top: -4.5rem;
+	}
+	34% {
+		width: 0;
+	}
+	44% {
+		width: 100%;
+	}
+	55% {
+		width: 100%;
+	}
+	65% {
+		top: -4.5rem;
+		width: 0;
+	}
+	66%{
+		top: -9rem;
+	}
+	67% {
+		width: 0;
+	}
+	77% {
+		width: 100%;
+	}
+	89% {
+		width: 100%;
+	}
+	99% {
+		top: -9rem;
+		width: 0;
+	}
+	100% {
+		top: 0;
+		width: 0;
+	}
+`;
 
 const StyledHome = styled.main`
 	display: flex;
@@ -69,7 +126,7 @@ const StyledHome = styled.main`
 			width: 150%;
 			height: 200%;
 			transform: rotate(-13deg);
-			background-color: ${CssConfig.mainColor};
+			background-color: ${(props) => props.theme.mainColor};
 		}
 		.img-box {
 			height: 90vh;
@@ -98,8 +155,20 @@ const StyledHome = styled.main`
 				margin-bottom: 20px;
 				font-size: 45px;
 				font-weight: bold;
-				span {
-					color: ${CssConfig.mainColor};
+				white-space: nowrap;
+				overflow: hidden;
+				position: relative;
+				.message {
+					display: block;
+					overflow: hidden;
+					position: absolute;
+					top: 0;
+					left: 80px;
+					animation: ${openclose} 8s ease-in-out infinite;
+					strong {
+						display: block;
+						color: ${(props) => props.theme.mainColor};
+					}
 				}
 			}
 			p {
@@ -122,7 +191,7 @@ const StyledHome = styled.main`
 					padding-bottom: 10px;
 					font-size: 16px;
 					font-weight: 500;
-					color: ${CssConfig.mainColor};
+					color: ${(props) => props.theme.mainColor};
 					span {
 						font-weight: 400;
 						opacity: 0.8;
@@ -134,7 +203,7 @@ const StyledHome = styled.main`
 		button {
 			padding: 0px 40px;
 			border-radius: 26px;
-			background-color: ${CssConfig.mainColor};
+			background-color: ${(props) => props.theme.mainColor};
 			font-size: 15px;
 			font-weight: 500;
 			color: #fff;

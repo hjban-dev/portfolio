@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import Heading from "../atoms/Heading";
-import CssConfig from "../../assets/config";
 
 function DetailWrap(props) {
 	// console.log(props.project);
 
 	const imgList = props.project.image.map((img, idx) => (
 		<li key={idx}>
-			<Heading level="3">❗ {img.tit} ❗</Heading>
-			<p>🔹 {img.desc}</p>
+			<Heading level="3">🔷 {img.tit} 🔷</Heading>
+			<p>▶ {img.desc}</p>
 			<img src={`/images/project/${img.name}`} alt="" />
 		</li>
 	));
@@ -52,7 +51,7 @@ function DetailWrap(props) {
 }
 
 const StyledDetail = styled.div`
-	max-width: 700px;
+	max-width: 800px;
 	margin: 0 auto;
 	.tit-wrap {
 		.meta-data {
@@ -64,7 +63,7 @@ const StyledDetail = styled.div`
 				i {
 					margin-right: 8px;
 					font-size: 16px;
-					color: ${CssConfig.mainColor};
+					color: ${(props) => props.theme.mainColor};
 					vertical-align: top;
 				}
 			}
@@ -91,11 +90,10 @@ const StyledDetail = styled.div`
 		}
 	}
 	.body-wrap {
-		img {
-			width: 100%;
+		p {
+			white-space: pre-line;
 		}
-		div {
-		}
+
 		ul {
 			li {
 				margin: 20px 0 10px;
@@ -108,6 +106,9 @@ const StyledDetail = styled.div`
 				}
 				p {
 					margin-bottom: 20px;
+				}
+				img {
+					width: 100%;
 				}
 			}
 		}

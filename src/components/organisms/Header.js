@@ -1,31 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import CssConfig from "../../assets/config";
 
-function Header() {
+function Header(props) {
+	const [Load, setLoad] = useState(false);
+	useEffect(() => {
+		setTimeout(() => {
+			setLoad(true);
+		}, 700);
+		return () => setLoad(false);
+	}, []);
+
 	return (
-		<StyledHeader>
+		<StyledHeader className={`${Load ? "on" : ""}`}>
 			<ul>
-				<li className="active">
+				<li className={props.page === "home" ? "active" : ""}>
 					<Link to="/">
+						<span>Home</span>
+						<i className="fas fa-home"></i>
+					</Link>
+				</li>
+				<li className={props.page === "skills" ? "active" : ""}>
+					<Link to="/skills">
 						<span>About</span>
 						<i className="fas fa-user"></i>
 					</Link>
 				</li>
-				<li>
-					<Link to="/skills">
-						<span>Skills</span>
-						<i className="fas fa-laptop-code"></i>
-					</Link>
-				</li>
-				<li>
+				<li className={props.page === "projects" ? "active" : ""}>
 					<Link to="/projects">
 						<span>Projects</span>
 						<i className="fas fa-tasks"></i>
 					</Link>
 				</li>
-				<li>
+				<li className={props.page === "blog" ? "active" : ""}>
 					<Link to="/blog">
 						<span>Blog</span>
 						<i className="fas fa-book"></i>
@@ -46,9 +53,15 @@ function Header() {
 const StyledHeader = styled.header`
 	position: fixed;
 	right: 20px;
-	top: 0;
+	top: 60px;
 	bottom: 0;
 	z-index: 100;
+	opacity: 0;
+	&.on {
+		top: 0;
+		opacity: 1;
+		transition: all 0.85s;
+	}
 	ul {
 		display: flex;
 		justify-content: center;
@@ -62,17 +75,17 @@ const StyledHeader = styled.header`
 			}
 			&.active {
 				a {
-					background-color: ${CssConfig.mainColor};
+					background-color: ${(props) => props.theme.mainColor};
 				}
 			}
 			&:hover {
 				a {
-					padding: 13px 14px 13px 18px;
-					background-color: ${CssConfig.mainColor};
+					padding: 13px 14px 13px 25px;
+					background-color: ${(props) => props.theme.mainColor};
 					span {
 						position: relative;
 						opacity: 1;
-						padding-right: 7px;
+						padding-right: 10px;
 						color: #fff;
 					}
 				}
@@ -88,10 +101,10 @@ const StyledHeader = styled.header`
 					right: 0px;
 					display: inline-block;
 					opacity: 0;
-					font-size: 18px;
+					font-size: 16px;
 					font-weight: 600;
 					letter-spacing: 0.5px;
-					line-height: 1;
+					line-height: 1.2;
 					text-transform: uppercase;
 					vertical-align: text-top;
 					transition: opacity 0.3s ease, padding 0.3s ease;

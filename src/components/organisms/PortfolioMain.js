@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import CssConfig from "../../assets/config";
 import data from "../../assets/data/portfoilodata";
 import { Link } from "react-router-dom";
 
-function PortfolioMain() {
+function PortfolioMain(props) {
 	var portList = document.querySelectorAll(".port-list");
 	const [Mount, setMount] = useState(false);
 
@@ -24,6 +23,9 @@ function PortfolioMain() {
 
 	function mouseEnter(e) {
 		let logo = e.target.children[0].children[1];
+		let width = e.target.clientWidth - 20;
+		let height = e.target.clientHeight - 20;
+
 		if (e.offsetY < 20) {
 			logo.style.top = "-100%";
 			logo.style.left = 0;
@@ -33,7 +35,7 @@ function PortfolioMain() {
 				logo.style.left = 0;
 				logo.style.top = 0;
 			}, 100);
-		} else if (e.offsetX > 300) {
+		} else if (e.offsetX > width) {
 			logo.style.top = 0;
 			logo.style.left = "100%";
 			logo.style.transition = "";
@@ -42,7 +44,7 @@ function PortfolioMain() {
 				logo.style.left = 0;
 				logo.style.top = 0;
 			}, 100);
-		} else if (e.offsetY > 300) {
+		} else if (e.offsetY > height) {
 			logo.style.top = "100%";
 			logo.style.left = 0;
 			logo.style.transition = "";
@@ -65,17 +67,20 @@ function PortfolioMain() {
 
 	function mouseLeave(e) {
 		let logo = e.target.children[0].children[1];
+		let width = e.target.clientWidth - 20;
+		let height = e.target.clientHeight - 20;
+
 		if (e.offsetY < 20) {
 			setTimeout(function () {
 				logo.style.top = "-100%";
 				logo.style.left = 0;
 			}, 150);
-		} else if (e.offsetX > 300) {
+		} else if (e.offsetX > width) {
 			setTimeout(function () {
 				logo.style.top = 0;
 				logo.style.left = "100%";
 			}, 150);
-		} else if (e.offsetY > 300) {
+		} else if (e.offsetY > height) {
 			setTimeout(function () {
 				logo.style.top = "100%";
 				logo.style.left = 0;
@@ -135,6 +140,7 @@ function PortfolioMain() {
 }
 
 const StyledPortWrap = styled.div`
+	width: 85%;
 	max-width: 1140px;
 	margin: auto;
 	padding-bottom: 80px;
@@ -146,7 +152,7 @@ const StyledPortWrap = styled.div`
 			position: relative;
 			width: 32%;
 			min-height: 320px;
-			margin-bottom: 20px;
+			margin-bottom: 2%;
 			padding: 20px;
 			background-color: #191919;
 			border-radius: 2px;
@@ -165,7 +171,7 @@ const StyledPortWrap = styled.div`
 				top: 20px;
 				right: 20px;
 				font-size: 30px;
-				color: ${CssConfig.mainColor};
+				color: ${(props) => props.theme.mainColor};
 				img {
 					width: 45px;
 				}
@@ -183,7 +189,7 @@ const StyledPortWrap = styled.div`
 						font-weight: 500;
 						font-size: 22px;
 						line-height: 1.3;
-						color: ${CssConfig.mainColor};
+						color: ${(props) => props.theme.mainColor};
 					}
 					.time {
 						font-size: 14px;
@@ -235,6 +241,24 @@ const StyledPortWrap = styled.div`
 						border-radius: 1px;
 						padding: 3px;
 					}
+				}
+			}
+		}
+	}
+	@media ${(props) => props.theme.laptop} {
+		width: 80%;
+		> ul {
+			> li {
+				min-height: 220px;
+			}
+		}
+	}
+	@media ${(props) => props.theme.tablet} {
+		width: 80%;
+		> ul {
+			li {
+				.tech {
+					display: none;
 				}
 			}
 		}

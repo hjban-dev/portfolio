@@ -1,7 +1,6 @@
 import React from "react";
 import data from "../../assets/data/skilldata";
 import styled from "styled-components";
-import CssConfig from "../../assets/config";
 import Heading from "../atoms/Heading";
 
 function SkillsWrap() {
@@ -30,10 +29,11 @@ const StyledSkillsWrap = styled.div`
 		padding: 20px 30px 20px 30px;
 		border: 1px solid #252525;
 		border-radius: 5px;
+		cursor: default;
 		.skill-label {
 			margin-bottom: 10px;
 			i {
-				color: ${CssConfig.mainColor};
+				color: ${(props) => props.theme.mainColor};
 				padding-right: 10px;
 				font-size: 50px;
 				vertical-align: text-top;
@@ -53,7 +53,7 @@ const StyledSkillsWrap = styled.div`
 					top: 13px;
 					width: 20px;
 					height: 1px;
-					background: ${CssConfig.mainColor};
+					background: ${(props) => props.theme.mainColor};
 				}
 			}
 		}
@@ -72,17 +72,14 @@ const StyledSkillsWrap = styled.div`
 			height: 0;
 			border-radius: 5px;
 		}
-
 		&::before {
 			top: 0;
 			left: 0;
 		}
-
 		&::after {
 			bottom: 0;
 			right: 0;
 		}
-
 		&:hover {
 			&::before,
 			&::after {
@@ -90,13 +87,13 @@ const StyledSkillsWrap = styled.div`
 				height: 100%;
 			}
 			&::before {
-				border-top-color: ${CssConfig.mainColor};
-				border-right-color: ${CssConfig.mainColor};
+				border-top-color: ${(props) => props.theme.mainColor};
+				border-right-color: ${(props) => props.theme.mainColor};
 				transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
 			}
 			&::after {
-				border-bottom-color: ${CssConfig.mainColor};
-				border-left-color: ${CssConfig.mainColor};
+				border-bottom-color: ${(props) => props.theme.mainColor};
+				border-left-color: ${(props) => props.theme.mainColor};
 				transition: border-color 0s ease-out 0.3s, width 0.15s ease-out 0.3s, height 0.15s ease-out 0.45s;
 			}
 		}

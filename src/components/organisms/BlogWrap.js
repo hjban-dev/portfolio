@@ -32,7 +32,8 @@ function BlogWrap() {
 }
 
 const StyledBlogWrap = styled.div`
-	width: 1000px;
+	width: 85%;
+	max-width: 1140px;
 	margin: auto;
 	padding-bottom: 80px;
 	> ul {
@@ -47,7 +48,7 @@ const StyledBlogWrap = styled.div`
 			&:hover {
 				.post-thumb {
 					span {
-						transform: scale(1.1);
+						transform: scale(1.08);
 					}
 				}
 			}
@@ -71,6 +72,7 @@ const StyledBlogWrap = styled.div`
 				padding: 20px 25px 25px 25px;
 				border-radius: 0 0 5px 5px;
 				background-color: #252525;
+				height: calc(100% - 150px);
 				.blog-group {
 					margin-bottom: 10px;
 					font-size: 20px;
@@ -94,6 +96,14 @@ const StyledBlogWrap = styled.div`
 			color: #fff;
 			line-height: 46px;
 			letter-spacing: 0.5px;
+		}
+	}
+
+	@media ${(props) => props.theme.laptop} {
+		> ul {
+			li {
+				width: 48.5%;
+			}
 		}
 	}
 `;
