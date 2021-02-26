@@ -20,8 +20,8 @@ function Header(props) {
 						<i className="fas fa-home"></i>
 					</Link>
 				</li>
-				<li className={props.page === "skills" ? "active" : ""}>
-					<Link to="/skills">
+				<li className={props.page === "about" ? "active" : ""}>
+					<Link to="/about">
 						<span>About</span>
 						<i className="fas fa-user"></i>
 					</Link>

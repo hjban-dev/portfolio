@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
-import theme from "./assets/config";
+import config from "./assets/config";
 import { ThemeProvider } from "styled-components";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<ThemeProvider theme={theme}>
+		<ThemeProvider theme={config}>
 			<App />
 		</ThemeProvider>
 	</React.StrictMode>,

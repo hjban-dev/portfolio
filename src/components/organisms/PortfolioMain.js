@@ -1,32 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, createRef } from "react";
 import styled from "styled-components";
 import data from "../../assets/data/portfoilodata";
 import { Link } from "react-router-dom";
 
 function PortfolioMain(props) {
 	var portList = document.querySelectorAll(".port-list");
-	const [Mount, setMount] = useState(false);
+
+	const arrLength = portList.length;
+	const [elRefs, setElRefs] = useState([]);
 
 	useEffect(() => {
-		for (var i = 0; i < portList.length; i++) {
-			portList[i].index = i;
+		// add or remove refs
+		setElRefs((elRefs) =>
+			Array(arrLength)
+				.fill()
+				.map((_, i) => elRefs[i] || createRef())
+		);
+	}, [arrLength]);
 
-			portList[i].addEventListener("mouseenter", (e) => {
-				mouseEnter(e);
-			});
-			portList[i].addEventListener("mouseleave", (e) => {
-				mouseLeave(e);
-			});
-		}
-		setMount(true);
-	}, [Mount]);
+	function mouseEnter(e, idx) {
+		let logo = elRefs[idx].current;
 
-	function mouseEnter(e) {
-		let logo = e.target.children[0].children[1];
-		let width = e.target.clientWidth - 20;
+		let width = e.target.clientHeight - 20;
 		let height = e.target.clientHeight - 20;
 
-		if (e.offsetY < 20) {
+		let offsetX = e.nativeEvent.offsetX;
+		let offsetY = e.nativeEvent.offsetY;
+
+		if (offsetY < 20) {
 			logo.style.top = "-100%";
 			logo.style.left = 0;
 			logo.style.transition = "";
@@ -35,7 +36,7 @@ function PortfolioMain(props) {
 				logo.style.left = 0;
 				logo.style.top = 0;
 			}, 100);
-		} else if (e.offsetX > width) {
+		} else if (offsetX > width) {
 			logo.style.top = 0;
 			logo.style.left = "100%";
 			logo.style.transition = "";
@@ -44,7 +45,7 @@ function PortfolioMain(props) {
 				logo.style.left = 0;
 				logo.style.top = 0;
 			}, 100);
-		} else if (e.offsetY > height) {
+		} else if (offsetY > height) {
 			logo.style.top = "100%";
 			logo.style.left = 0;
 			logo.style.transition = "";
@@ -53,7 +54,7 @@ function PortfolioMain(props) {
 				logo.style.left = 0;
 				logo.style.top = 0;
 			}, 100);
-		} else if (e.offsetX < 20) {
+		} else if (offsetX < 20) {
 			logo.style.top = 0;
 			logo.style.left = "-100%";
 			logo.style.transition = "";
@@ -65,42 +66,72 @@ function PortfolioMain(props) {
 		}
 	}
 
-	function mouseLeave(e) {
-		let logo = e.target.children[0].children[1];
-		let width = e.target.clientWidth - 20;
+	function mouseLeave(e, idx) {
+		let logo = elRefs[idx].current;
+
+		let width = e.target.clientHeight - 20;
 		let height = e.target.clientHeight - 20;
 
-		if (e.offsetY < 20) {
+		let offsetX = e.nativeEvent.offsetX;
+		let offsetY = e.nativeEvent.offsetY;
+
+		if (offsetY < 20) {
 			setTimeout(function () {
 				logo.style.top = "-100%";
 				logo.style.left = 0;
-			}, 150);
-		} else if (e.offsetX > width) {
+			}, 100);
+		} else if (offsetX > width) {
 			setTimeout(function () {
 				logo.style.top = 0;
 				logo.style.left = "100%";
-			}, 150);
-		} else if (e.offsetY > height) {
+			}, 100);
+		} else if (offsetY > height) {
 			setTimeout(function () {
 				logo.style.top = "100%";
 				logo.style.left = 0;
-			}, 150);
-		} else if (e.offsetX < 20) {
+			}, 100);
+		} else if (offsetX < 20) {
 			setTimeout(function () {
 				logo.style.top = 0;
 				logo.style.left = "-100%";
-			}, 150);
+			}, 100);
 		}
 	}
+	// var direction = "";
+	// var oldx = 0;
+	// var oldy = 0;
+	// function mousemovemethod(e) {
+	// 	if (e.pageX > oldx && e.pageY == oldy) {
+	// 		direction = "East";
+	// 	} else if (e.pageX == oldx && e.pageY > oldy) {
+	// 		direction = "South";
+	// 	} else if (e.pageX == oldx && e.pageY < oldy) {
+	// 		direction = "North";
+	// 	} else if (e.pageX < oldx && e.pageY == oldy) {
+	// 		direction = "West";
+	// 	}
+
+	// 	console.log(direction);
+
+	// 	oldx = e.pageX;
+	// 	oldy = e.pageY;
+	// }
 
 	const portfolioList = data.portfolioList.map((list, idx) => (
 		<li key={idx} className="port-list">
-			<Link to={`/projects/${list.name}`}>
+			<Link
+				to={`/projects/${list.name}`}
+				onMouseEnter={(e) => {
+					mouseEnter(e, idx);
+				}}
+				onMouseLeave={(e) => {
+					mouseLeave(e, idx);
+				}}
+			>
 				<div>
 					{list.project === "Toy" && (
 						<div className="toy">
-							{/* <i class="fas fa-baby-carriage"></i> */}
-							<img src="/images/toy.png" alt="" />
+							<img src="./images/toy.png" alt="" />
 						</div>
 					)}
 
@@ -123,9 +154,9 @@ function PortfolioMain(props) {
 						</div>
 					</div>
 				</div>
-				<div className="logoWrap">
+				<div className="logoWrap" ref={elRefs[idx]}>
 					<div className="logo">
-						<img src={`/images/logo/${list.logo}.png`} alt="" />
+						<img src={`./images/logo/${list.logo}.png`} alt="" />
 					</div>
 				</div>
 			</Link>
@@ -153,7 +184,7 @@ const StyledPortWrap = styled.div`
 			width: 32%;
 			min-height: 320px;
 			margin-bottom: 2%;
-			padding: 20px;
+			padding: 10px;
 			background-color: #191919;
 			border-radius: 2px;
 			overflow: hidden;
@@ -161,6 +192,7 @@ const StyledPortWrap = styled.div`
 				width: 100%;
 				height: 100%;
 				display: inline-block;
+				padding: 10px;
 				> div {
 					height: 100%;
 				}

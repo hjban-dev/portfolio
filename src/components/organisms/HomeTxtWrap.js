@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import imgSrc from "../../assets/images/home1.jpg";
+import { Link } from "react-router-dom";
 import Heading from "../atoms/Heading";
 
 function AboutTxtWrap() {
@@ -12,7 +12,7 @@ function AboutTxtWrap() {
 			</div>
 			<div className="right">
 				<div className="tit-wrap">
-					<Heading level="2">HI THERE!</Heading>
+					<Heading level="2">HI! HOW ARE YOU?</Heading>
 					<Heading>
 						I'M{" "}
 						<span className="message">
@@ -21,7 +21,12 @@ function AboutTxtWrap() {
 							<strong>UX/UI PUBLISHER</strong>
 						</span>
 					</Heading>
-					<p>I’m a Tunisian based web designer & front‑end developer focused on crafting clean & user‑friendly experiences, I am passionate about building excellent software that improves the lives of those around me.</p>
+					{/* <p>I’m a Tunisian based web designer & front‑end developer focused on crafting clean & user‑friendly experiences, I am passionate about building excellent software that improves the lives of those around me.</p> */}
+					<p>
+						안녕하세요, 저는 반혜주입니다. 😀
+						<br />
+						새로운 기술에 관심이 많으며 동료들과의 커뮤니케이션과 상호 피드백 및 리뷰를 좋아합니다. 현재 프론트엔드 개발자로 구직중입니다. 맡은 일에 자부심을 갖고 도전을 경험할 수 있는 회사에서 일하고 싶습니다.
+					</p>
 				</div>
 				<section>
 					<Heading level="2">PERSONAL INFOS</Heading>
@@ -49,7 +54,9 @@ function AboutTxtWrap() {
 						</li> */}
 					</ul>
 				</section>
-				<button>MORE ABOUT ME</button>
+				<Link to="/about" className="more-btn">
+					MORE ABOUT ME
+				</Link>
 			</div>
 		</StyledHome>
 	);
@@ -131,7 +138,7 @@ const StyledHome = styled.main`
 		.img-box {
 			height: 90vh;
 			margin: 5vh 0 0 30px;
-			background-image: url(${imgSrc});
+			background-image: url(${(props) => props.theme.mainSrc});
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: top;
@@ -147,7 +154,7 @@ const StyledHome = styled.main`
 		padding: 0 10% 0 7%;
 		.tit-wrap {
 			max-width: 570px;
-			margin-bottom: 40px;
+			margin-bottom: 60px;
 			h2 {
 				font-size: 22px;
 			}
@@ -200,7 +207,7 @@ const StyledHome = styled.main`
 				}
 			}
 		}
-		button {
+		.more-btn {
 			padding: 0px 40px;
 			border-radius: 26px;
 			background-color: ${(props) => props.theme.mainColor};

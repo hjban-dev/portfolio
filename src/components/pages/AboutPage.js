@@ -6,10 +6,10 @@ import ExperienceWrap from "../organisms/ExperienceWrap";
 import SkillsWrap from "../organisms/SkillsWrap";
 import PageWrap from "../templates/PageWrap";
 
-export class SkillsPage extends Component {
+export class aboutPage extends Component {
 	render() {
 		return (
-			<PageWrap page="skills">
+			<PageWrap page="about">
 				<StyledSkills>
 					<PageHeader titleBg="Skills">
 						About <span className="point">Me</span>
@@ -58,4 +58,4 @@ const StyledSkills = styled.main`
 		}
 	}
 `;
-export default SkillsPage;
+export default aboutPage;

@@ -9,7 +9,7 @@ function DetailWrap(props) {
 		<li key={idx}>
 			<Heading level="3">🔷 {img.tit} 🔷</Heading>
 			<p>▶ {img.desc}</p>
-			<img src={`/images/project/${img.name}`} alt="" />
+			<img src={`../images/project/${img.name}`} alt="" />
 		</li>
 	));
 
@@ -39,7 +39,7 @@ function DetailWrap(props) {
 					</ul>
 				</div>
 				<div className="body-wrap">
-					{/* <img src="/images/project/post.jpg" alt="" /> */}
+					<img src="../images/project/post.jpg" alt="" />
 					<div>
 						<p>{props.project.description}</p>
 					</div>

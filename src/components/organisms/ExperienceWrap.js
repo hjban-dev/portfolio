@@ -7,7 +7,7 @@ function ExperienceWrap() {
 	const experienceList = data.experienceList.map((list, idx) => (
 		<li key={idx}>
 			<div className="icon">
-				<i className="far fa-building"></i>
+				<i className="fas fa-building"></i>
 			</div>
 			<span className="time">{list.period}</span>
 			<Heading level="4">
@@ -21,7 +21,7 @@ function ExperienceWrap() {
 	const educationList = data.educationList.map((list, idx) => (
 		<li key={idx}>
 			<div className="icon">
-				<i className="far fa-building"></i>
+				<i className="fas fa-graduation-cap"></i>
 			</div>
 			<span className="time">{list.period}</span>
 			<Heading level="4">
