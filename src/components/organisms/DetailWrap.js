@@ -7,8 +7,8 @@ function DetailWrap(props) {
 
 	const imgList = props.project.image.map((img, idx) => (
 		<li key={idx}>
-			<Heading level="3">🔷 {img.tit} 🔷</Heading>
-			<p>▶ {img.desc}</p>
+			<Heading level="3">{img.tit !== "" && "🔷 " + img.tit + " 🔷"}</Heading>
+			<p>{img.desc !== "" && "▶ " + img.desc} </p>
 			<img src={`../images/project/${img.name}`} alt="" />
 		</li>
 	));
@@ -39,9 +39,23 @@ function DetailWrap(props) {
 					</ul>
 				</div>
 				<div className="body-wrap">
-					<img src="../images/project/post.jpg" alt="" />
+					{/* <img src="../images/project/post.jpg" alt="" /> */}
 					<div>
 						<p>{props.project.description}</p>
+						<div className="link">
+							{props.project.link && (
+								<a href={props.project.link} target="_blank">
+									<i className="far fa-file-alt"></i>
+									Project : <span>Link</span>
+								</a>
+							)}
+							{props.project.github && (
+								<a href={props.project.github} target="_blank">
+									<i className="fab fa-github"></i>
+									Github : <span>Link</span>
+								</a>
+							)}
+						</div>
 					</div>
 					<ul>{props.project.image && imgList}</ul>
 				</div>
@@ -92,6 +106,25 @@ const StyledDetail = styled.div`
 	.body-wrap {
 		p {
 			white-space: pre-line;
+		}
+		.link {
+			margin-top: 16px;
+			a {
+				margin-bottom: 2px;
+				i {
+					margin-right: 8px;
+					min-width: 14px;
+					text-align: center;
+					color: ${(props) => props.theme.mainColor};
+					vertical-align: middle;
+				}
+				span {
+					color: ${(props) => props.theme.mainColor};
+				}
+			}
+			a:nth-child(2) {
+				margin-left: 20px;
+			}
 		}
 
 		ul {
