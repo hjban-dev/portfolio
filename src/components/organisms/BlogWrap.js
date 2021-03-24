@@ -101,8 +101,31 @@ const StyledBlogWrap = styled.div`
 
 	@media ${(props) => props.theme.laptop} {
 		> ul {
+			width: 90%;
+			margin: auto;
 			li {
 				width: 48.5%;
+			}
+		}
+	}
+	@media ${(props) => props.theme.mobile} {
+		> ul {
+			li {
+				width: 100%;
+				margin-bottom: 30px;
+				.post-thumb {
+					height: 100px;
+				}
+				.post-cont {
+					height: calc(100% - 100px);
+					.blog-desc {
+						display: -webkit-box;
+						-webkit-line-clamp: 2; // 생략 부호가 적용되는 라인 수
+						-webkit-box-orient: vertical;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
 			}
 		}
 	}

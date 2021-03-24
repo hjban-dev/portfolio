@@ -58,6 +58,19 @@ const StyledSkillsWrap = styled.div`
 			}
 		}
 	}
+	@media ${(props) => props.theme.laptop} {
+		width: 85%;
+		margin: auto;
+		.skill-list {
+			width: calc(50% - 30px);
+		}
+	}
+	@media ${(props) => props.theme.mobile} {
+		width: 90%;
+		.skill-list {
+			width: calc(100% - 30px);
+		}
+	}
 	.skill-list {
 		position: relative;
 		&::before,

@@ -44,13 +44,13 @@ function DetailWrap(props) {
 						<p>{props.project.description}</p>
 						<div className="link">
 							{props.project.link && (
-								<a href={props.project.link} target="_blank">
+								<a href={props.project.link} target="_blank" rel="noopener noreferrer">
 									<i className="far fa-file-alt"></i>
 									Project : <span>Link</span>
 								</a>
 							)}
 							{props.project.github && (
-								<a href={props.project.github} target="_blank">
+								<a href={props.project.github} target="_blank" rel="noopener noreferrer">
 									<i className="fab fa-github"></i>
 									Github : <span>Link</span>
 								</a>

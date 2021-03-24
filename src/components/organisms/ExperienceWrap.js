@@ -113,6 +113,26 @@ const StyledExpWrap = styled.div`
 			}
 		}
 	}
+
+	@media ${(props) => props.theme.laptop} {
+		width: 85%;
+		margin: auto;
+		> div {
+		}
+	}
+	@media ${(props) => props.theme.mobile} {
+		flex-wrap: wrap;
+		width: 90%;
+
+		> div {
+			width: 100%;
+			> ul {
+				> li {
+					padding: 0 50px 0 50px;
+				}
+			}
+		}
+	}
 `;
 
 export default ExperienceWrap;
