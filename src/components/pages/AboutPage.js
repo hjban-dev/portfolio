@@ -57,5 +57,15 @@ const StyledSkills = styled.main`
 			text-align: center;
 		}
 	}
+	@media ${(props) => props.theme.mobile} {
+		section {
+			padding-bottom: 40px;
+			&:not(:last-child) {
+				&::after {
+					width: 70%;
+				}
+			}
+		}
+	}
 `;
 export default aboutPage;
