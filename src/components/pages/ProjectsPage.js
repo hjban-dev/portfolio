@@ -14,8 +14,6 @@ export class ProjectsPage extends Component {
 					</PageHeader>
 					<section>
 						<PortfolioMain />
-					</section>
-					<section>
 						<PortfolioMini />
 					</section>
 				</main>
