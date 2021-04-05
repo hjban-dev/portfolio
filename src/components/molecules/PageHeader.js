@@ -47,6 +47,22 @@ const StyledPageHeader = styled.div`
 			letter-spacing: 10px;
 		}
 	}
+	@media ${(props) => props.theme.tablet} {
+		padding: 60px 0px 60px 0px;
+	}
+	@media ${(props) => props.theme.mobile} {
+		padding: 30px 0px 30px 0px;
+		h1 {
+			font-size: 46px;
+			letter-spacing: 3px;
+		}
+		.title-bg {
+			font-size: 80px;
+			letter-spacing: 20px;
+			&.on {
+			}
+		}
+	}
 `;
 
 export default PageHeader;
