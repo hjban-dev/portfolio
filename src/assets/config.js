@@ -1,7 +1,7 @@
-import mainSrc from "./images/home1.jpg";
+import mainSrc from "./images/home2.jpg";
 
 const size = {
-	mobile: "770px",
+	mobile: "720px",
 	tablet: "1024px",
 	laptop: "1280px",
 };

@@ -24,6 +24,10 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html, body{
+	max-width:1440px;
+	margin:auto;
+}
 body {
 	line-height: 1.6;
 	color: #fff;
@@ -94,9 +98,6 @@ span.point{
 
 /*  */
 
-.heading-wrap + section{
-	
-}
 
-/*  */
+
 
