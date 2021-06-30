@@ -11,8 +11,8 @@ const skillData = {
 			icon: "fab fa-node-js",
 		},
 		{
-			label: "Javascript",
-			detail: ["ES6와 이후의 자바스크립트 문법을 사용할 수 있습니다.", "Vanilla JS의 웹 제작이 가능하고 필요 이유에 대해 충분히 이해하고 있습니다.", "폭 넓은 플러그인의 사용이 가능합니다."],
+			label: "Javascript/Typescript",
+			detail: ["ES6와 이후의 자바스크립트 문법을 사용할 수 있습니다.", "Vanilla JS의 웹 제작이 가능하고 필요 이유에 대해 충분히 이해하고 있습니다.", "타입에 대한 이해를 하고 있고, 인터페이스의 사용이 가능합니다."],
 			icon: "fab fa-js-square",
 		},
 		{
